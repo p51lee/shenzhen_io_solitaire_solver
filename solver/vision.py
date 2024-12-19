@@ -12,6 +12,7 @@ def extract_table(table, origin):
         for ci in range(num_cols):
             x, y = origin[0] + table_offset_x * ci, origin[1] + table_offset_y * ri
             img = table.crop((x, y, x+symbol_width, y+symbol_height))
+            # print(x, y, x+symbol_width, y+symbol_height)
             row.append(img)
         out.append(row)
     return out
@@ -49,6 +50,10 @@ def match(im, wiggle=False):
 
 def extract_cap(cap):
     tab = extract_table(cap, table_top_left)
+    # for i, row in enumerate(tab):
+    #     for j, img in enumerate(row):
+    #         print(f"Displaying image at row {i}, column {j}...")
+    #         img.show()
     cols = [[] for _ in range(num_cols)]
     for ci in range(num_cols):
         for ri in range(len(tab)):
