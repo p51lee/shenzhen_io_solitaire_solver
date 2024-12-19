@@ -121,8 +121,7 @@ def auto():
     hk.register(('q',), callback=quit_handler)
     for i in range(20):
         print("playing game %d" % (i+1))
-        # try:
-        if True:
+        try:
             click(newgame[0], newgame[1])
             time.sleep(6)
             solve_new()
@@ -131,6 +130,6 @@ def auto():
                 time.sleep(0.1)
             print("finished game %d" % (i+1))
             time.sleep(6)
-        # except Exception as e:
-        #     print(e)
-        #     continue
+        except:
+            print("error in game %d" % (i+1))
+            continue
